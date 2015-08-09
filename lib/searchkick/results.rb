@@ -45,7 +45,7 @@ module Searchkick
               else
                 hit.except("fields").merge(hit["fields"])
               end
-            result["id"] ||= result["_id"] # needed for legacy reasons
+            result["id"] = result["_id"] # needed for legacy reasons
             Hashie::Mash.new(result)
           end
         end
