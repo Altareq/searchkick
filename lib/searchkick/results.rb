@@ -46,7 +46,7 @@ module Searchkick
                 hit.except("fields").merge(hit["fields"])
               end
 
-            if result.present? && hits["_source"]
+            if result.present? && hit["_source"]
               hit["_source"]["id"] = result["_id"]
             end
 
