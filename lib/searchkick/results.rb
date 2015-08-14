@@ -47,7 +47,7 @@ module Searchkick
               end
 
             if result.present? && hits["_source"]
-              result["_source"]["id"] = result["_id"]
+              hit["_source"]["id"] = result["_id"]
             end
 
             result["id"] = result["_id"] if result.present? # needed for legacy reasons
