@@ -46,11 +46,11 @@ module Searchkick
                 hit.except("fields").merge(hit["fields"])
               end
 
-            if hits["_source"]
+            if result.present? && hits["_source"]
               result["_source"]["id"] = result["_id"]
             end
 
-            result["id"] = result["_id"] # needed for legacy reasons
+            result["id"] = result["_id"] if result.present? # needed for legacy reasons
             Hashie::Mash.new(result)
           end
         end
